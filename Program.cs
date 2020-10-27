@@ -47,7 +47,6 @@ namespace editor_texto_csharp
 
       while (Console.ReadKey().Key != ConsoleKey.Escape);
       {
-        Console.Write(text);
         Salvar(text);
       }
 
@@ -64,6 +63,10 @@ namespace editor_texto_csharp
       {
         file.Write(text);
       }
+
+      Console.WriteLine($"O Arquivo foi salvo com sucesso no caminho: {path}!");
+      Console.ReadLine();
+      Menu();
 
     }
 
