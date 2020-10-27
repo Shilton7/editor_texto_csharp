@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace editor_texto_csharp
 {
@@ -47,9 +48,25 @@ namespace editor_texto_csharp
       while (Console.ReadKey().Key != ConsoleKey.Escape);
       {
         Console.Write(text);
+        Salvar(text);
       }
 
     }
+
+    static void Salvar(string text)
+    {
+      Console.Clear();
+      Console.WriteLine("Qual o caminho que deseja salvar o arquivo ?");
+
+      string path = Console.ReadLine();
+
+      using (var file = new StreamWriter(path))
+      {
+        file.Write(text);
+      }
+
+    }
+
     static void Sair()
     {
       System.Environment.Exit(0);
