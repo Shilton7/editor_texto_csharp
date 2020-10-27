@@ -30,6 +30,19 @@ namespace editor_texto_csharp
     }
     static void Abrir()
     {
+      Console.Clear();
+      Console.WriteLine("Informe o caminho do arquivo que deseja abrir");
+      string path = Console.ReadLine();
+
+      using (var file = new StreamReader(path))
+      {
+        string data = file.ReadToEnd();
+        Console.WriteLine(data);
+      }
+
+      Console.WriteLine("");
+      Console.ReadLine();
+      Menu();
 
     }
     static void Novo()
